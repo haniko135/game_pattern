@@ -1,10 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Добро пожаловать!</title>
+    <meta http-equiv="Content-Type" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
 </head>
 <body>
-    <div>Succeed!</div>
+    <h3>Выбери тип игры</h3>
+    <div class="flex-div">
+        <a href="/onlyImages"><div class="choice">Только картинки</div></a>
+        <a href=""><div class="choice">Только элементы кода</div></a>
+        <a href=""><div class="choice">И то, и другое</div></a>
+    </div>
 </body>
 </html>

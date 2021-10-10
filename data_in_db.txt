@@ -1,0 +1,58 @@
+create database "gameDB"
+    with owner "adminDB";
+
+create schema public;
+
+comment on schema public is 'standard public schema';
+
+alter schema public owner to "adminDB";
+
+grant create, usage on schema public to public;
+
+create table game
+(
+    id           bigint  not null
+        constraint game_pkey
+            primary key,
+    answer1      varchar(255),
+    answer1right boolean not null,
+    answer2      varchar(255),
+    answer2right boolean not null,
+    answer3      varchar(255),
+    answer3right boolean not null,
+    answer4      varchar(255),
+    answer4right boolean not null,
+    code         boolean not null,
+    code_listing varchar(255),
+    question     varchar(255),
+    uml          boolean not null,
+    url_image    varchar(255)
+);
+
+alter table game
+    owner to "adminDB";
+
+insert into game values ('0', 'Адаптер', 'Фабричный метод', 'Декоратор', 'Строитель', '','true', 'false', 'false', 'false', 'false', 'true',  'Что за паттерн изображен на рисунке?', 'structure-adapter.png');
+insert into game values ('1', 'Одиночка', 'Стратегия', 'Мост',  'Фасад','',  'false', 'false', 'true', 'false', 'false',  'true', 'Что за паттерн изображен на рисунке?', 'structure-bridge.png');
+insert into game values ('2', 'Итератор', 'Строитель', 'Прототип', 'Посредник', '', 'false', 'true', 'false', 'false', 'false', 'true', 'Что за паттерн изображен на рисунке?',  'structure-builder.png');
+insert into game values ('3', 'Фабричный метод', 'Мост', 'Цепочка', 'Команда', '', 'false', 'false', 'false', 'true', 'false',  'true', 'Что за паттерн изображен на рисунке?', 'structure-command.png');
+insert into game values ('5', 'Компоновщик', 'true', 'Фасад', 'false', 'Стратегия', 'false', 'Состояние', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-component.png');
+insert into game values ('6', 'Итератор', 'false', 'Декоратор', 'true', 'Одиночка', 'false', 'Адаптер', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-decorator.png');
+insert into game values ('7', 'Шаблон', 'false', 'Фабричный метод', 'false', 'Абстрактная фабрика', 'true', 'Наблюдатель', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-fabric-factory.png');
+insert into game values ('8', 'Фасад', 'false', 'Заместитель', 'false', 'Строитель', 'false', 'Фабричный метод', 'true', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-fabric-method.png');
+insert into game values ('9', 'Фасад', 'true', 'Посетитель', 'false', 'Прототип', 'false', 'Шаблон', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-fascade.png');
+insert into game values ('10', 'Стратегия', 'false', 'Итератор', 'true', 'Строитель', 'false', 'Наблюдатель', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-iterator.png');
+insert into game values ('11', 'Заместитель', 'false', 'Одиночка', 'false', 'Легковес', 'true', 'Посредник', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-leighweight.png');
+insert into game values ('12', 'Мост', 'false', '', 'false', 'Декоратор', 'false', 'Посредник', 'true', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-mediator.png');
+insert into game values ('13', 'Прототип', 'true', 'Компоновщик', 'false', 'Декоратор', 'false', 'Мост', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-prototype.png');
+insert into game values ('14', 'Адаптер', 'false', 'Одиночка', 'true', 'Декоратор', 'false', 'Строитель', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-singleton.png');
+insert into game values ('15', 'Посредник', 'false', 'Абстрактная фабрика', 'false', 'Состояние', 'true', 'Строитель', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-state-machine.png');
+insert into game values ('16', 'Наблюдатель', 'false', 'Состояние', 'false', 'Прокси', 'false', 'Стратегия', 'true', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-strategy.png');
+insert into game values ('17', 'Шаблон', 'true', 'Легковес', 'false', 'Строитель', 'false', 'Команда', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-template.png');
+insert into game values ('18', 'Фасад', 'false', 'Цепочка обязанностей', 'true', 'Наблюдатель', 'false', 'Декоратор', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-tsepochka.png');
+insert into game values ('19', 'Стратегия', 'false', 'Мост', 'false', 'Наблюдатель', 'true', 'Строитель', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-viewer.png');
+insert into game values ('20', 'Итератор', 'false', 'Посредник', 'false', 'Декоратор', 'false', 'Посетитель', 'true', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-visitor.png');
+insert into game values ('21', 'Прокси', 'true', 'Посредник', 'false', 'Компоновщик', 'false', 'Адаптер', 'false', 'false', '', 'Что за паттерн изображен на рисунке?', 'yes', 'structure-proxy.png');\
+
+
+insert into game values ('22', 'Адаптер', 'true', 'Фабричный метод', 'false', 'Декоратор', 'false', 'Строитель', 'false', 'false', '', 'Что за паттерн применяется в данном примере?', 'false', '');

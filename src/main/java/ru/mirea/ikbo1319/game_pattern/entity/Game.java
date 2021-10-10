@@ -13,18 +13,18 @@ import javax.persistence.Id;
 public class Game {
 
     private String urlImage;
-    private boolean isUml;
-    private boolean isCode;
+    private Boolean isUml;
+    private Boolean isCode;
     private String codeListing;
     private String question;
     private String answer1;
+    private Boolean isAnswer1Right;
     private String answer2;
+    private Boolean isAnswer2Right;
     private String answer3;
+    private Boolean isAnswer3Right;
     private String answer4;
-    private boolean isAnswer1Right;
-    private boolean isAnswer2Right;
-    private boolean isAnswer3Right;
-    private boolean isAnswer4Right;
+    private Boolean isAnswer4Right;
     private Long ID;
 
     public Game() {

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Только картинки</title>
+    <meta http-equiv="Content-Type" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="img">
+        <img th:src="@{'/img_sources/' + ${that_game.getUrlImage()}}">
+    </div>
+    <div class="question">
+        <h4 th:text="${that_game.getQuestion()}"></h4>
+    </div>
+    <div class="answers">
+        <form method="post" th:action="@{/answer_only_images}">
+            <input type="hidden" th:value="${that_game.getIsAnswer1Right()}" th:name="${that_game}">
+            <input type="submit" class="answer" value = "СЮДЫ">
+        </form>
+        <form method="post" th:action="@{/answer_only_images}">
+            <input type="hidden" th:value="'2L'" th:name="is_answer">
+            <input type="submit" class="answer" th:text="${that_game.getAnswer2()}">
+        </form>
+        <form method="post" th:action="@{/answer_only_images}">
+            <input type="hidden" value="3L" th:name="is_answer">
+            <input type="submit" class="answer" th:text="${that_game.getAnswer3()}">
+        </form>
+        <form method="post" th:action="@{/answer_only_images}">
+            <input type="hidden" value="4L" th:name="is_answer">
+            <input type="submit" class="answer" th:text="${that_game.getAnswer4()}">
+        </form>
+    </div>
+</body>
+</html>
