@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>И то и другое</title>
+    <meta http-equiv="Content-Type" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <div class="img-wrap">
+        <img th:src="@{'/code_sources/' + ${that_game.getCodeListing()}}" alt="picture1">
+        <img th:src="@{'/img_sources/' + ${that_game.getUrlImage()}}" class="img" alt="picture2">
+    </div>
+    <div class="question">
+        <h4 th:text="${that_game.getQuestion()}"></h4>
+    </div>
+    <div class="answers">
+        <a href = "/answer_both?idGame=0">
+            <button th:text="${that_game.getAnswer1()}" class="answer"></button>
+        </a>
+        <a href = "/answer_both?idGame=1">
+            <button th:text="${that_game.getAnswer2()}" class="answer"></button>
+        </a>
+        <a href = "/answer_both?idGame=2">
+            <button th:text="${that_game.getAnswer3()}" class="answer"></button>
+        </a>
+        <a href= "/answer_both?idGame=3">
+            <button th:text="${that_game.getAnswer4()}" class="answer"></button>
+        </a>
+    </div>
+</body>
+</html>

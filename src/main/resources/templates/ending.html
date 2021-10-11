@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Конец</title>
+    <meta http-equiv="Content-Type" charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+    <h1 class="ending">ПОЗДРАВЛЯЕМ!</h1>
+    <div class="img-wrap">
+        <img src="stonks.jpg" alt="meme">
+    </div>
+    <div class="flex-div">
+        <div class="text_ending">У вас <b><span th:text="${score}"></span></b> баллов</div>
+    </div>
+
+    <div class="flex-div">
+        <a href="/">
+            <div class="to_main">на главную</div>
+        </a>
+    </div>
+</body>
+</html>
