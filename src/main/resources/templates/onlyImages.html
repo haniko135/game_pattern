@@ -14,22 +14,18 @@
         <h4 th:text="${that_game.getQuestion()}"></h4>
     </div>
     <div class="answers">
-        <form method="post" th:action="@{/answer_only_images}">
-            <input type="hidden" th:value="${that_game.getIsAnswer1Right()}" th:name="${that_game}">
-            <input type="submit" class="answer" value = "СЮДЫ">
-        </form>
-        <form method="post" th:action="@{/answer_only_images}">
-            <input type="hidden" th:value="'2L'" th:name="is_answer">
-            <input type="submit" class="answer" th:text="${that_game.getAnswer2()}">
-        </form>
-        <form method="post" th:action="@{/answer_only_images}">
-            <input type="hidden" value="3L" th:name="is_answer">
-            <input type="submit" class="answer" th:text="${that_game.getAnswer3()}">
-        </form>
-        <form method="post" th:action="@{/answer_only_images}">
-            <input type="hidden" value="4L" th:name="is_answer">
-            <input type="submit" class="answer" th:text="${that_game.getAnswer4()}">
-        </form>
+        <a href = "/answer_only_images?idGame=0">
+            <button th:text="${that_game.getAnswer1()}" class="answer"></button>
+        </a>
+        <a href = "/answer_only_images?idGame=1">
+            <button th:text="${that_game.getAnswer2()}" class="answer"></button>
+        </a>
+        <a href = "/answer_only_images?idGame=2">
+            <button th:text="${that_game.getAnswer3()}" class="answer"></button>
+        </a>
+        <a href = "/answer_only_images?idGame=3">
+            <button th:text="${that_game.getAnswer4()}" class="answer"></button>
+        </a>
     </div>
 </body>
 </html>

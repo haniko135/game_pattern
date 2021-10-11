@@ -37,6 +37,13 @@ public class DefaultController {
         return "/onlyImages";
     }
 
+    @GetMapping("/ending")
+    public String ending(Model score){
+        score.addAttribute("score", counter);
+        counter=0;
+        return "/ending";
+    }
+
     @GetMapping(value = "/answer_only_images")
     public String answerOnlyImages(@RequestParam Long idGame){
 
@@ -65,4 +72,76 @@ public class DefaultController {
         return "redirect:/onlyImages";
     }
 
+
+    @GetMapping("/onlyCode")
+    public String onlyCode(Model model){
+        ArrayList<Game> games = gameRepo.findAllByIsCodeTrue();
+        Game that_game = games.get(id);
+        model.addAttribute("that_game", that_game);
+        return "/onlyCode";
+
+    }
+
+    @GetMapping(value = "/answer_only_code")
+    public String answerOnlyCode(@RequestParam Long idGame){
+        System.out.println(id);
+
+        ArrayList<Game> games = gameRepo.findAllByIsCodeTrue();
+        Game that_game = games.get(id);
+
+        Vector<Boolean> answers = new Vector<>();
+        answers.add(0,that_game.getIsAnswer1Right());
+        answers.add(1,that_game.getIsAnswer2Right());
+        answers.add(2,that_game.getIsAnswer3Right());
+        answers.add(3,that_game.getIsAnswer4Right());
+        Boolean that_answer = answers.get(Math.toIntExact(idGame));
+
+        if(that_answer)
+            counter++;
+
+        cnt++;
+        id++;
+        if(cnt == games.size()-1){
+            cnt=1;
+            answers.clear();
+            id=0;
+            return "redirect:/ending";
+        }
+        return "redirect:/onlyCode";
+    }
+
+    @GetMapping("/both")
+    public String both(Model model) {
+        ArrayList<Game> games = gameRepo.findAll();
+        Game that_game = games.get(id);
+        model.addAttribute("that_game", that_game);
+        return "/both";
+    }
+
+    @GetMapping(value = "/answer_both")
+    public String answerBoth(@RequestParam Long idGame){
+
+        ArrayList<Game> games = gameRepo.findAll();
+        Game that_game = games.get(id);
+
+        Vector<Boolean> answers = new Vector<>();
+        answers.add(0,that_game.getIsAnswer1Right());
+        answers.add(1,that_game.getIsAnswer2Right());
+        answers.add(2,that_game.getIsAnswer3Right());
+        answers.add(3,that_game.getIsAnswer4Right());
+        Boolean that_answer = answers.get(Math.toIntExact(idGame));
+
+        if(that_answer)
+            counter++;
+
+        cnt++;
+        id++;
+        if(cnt == games.size()-1){
+            cnt=1;
+            answers.clear();
+            id=0;
+            return "redirect:/ending";
+        }
+        return "redirect:/both";
+    }
 }

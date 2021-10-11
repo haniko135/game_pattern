@@ -10,5 +10,7 @@ import java.util.ArrayList;
 public interface GameRepo extends CrudRepository<Game, Long> {
 
     ArrayList<Game> findAllByIsUmlIsTrue();
+    ArrayList<Game> findAllByIsCodeTrue();
+    ArrayList<Game> findAll();
 
 }
